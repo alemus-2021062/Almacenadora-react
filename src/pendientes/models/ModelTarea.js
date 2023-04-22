@@ -1,8 +1,8 @@
-export const Tarea = {
+export const tareaModal = {
     _id: "",
     nombre: "",
     descripcion: "",
-    fecha_inicio: "",
-    fecha_cierre: "",
+    fecha_inicio: new Date(),
+    fecha_cierre: new Date(),
     creador: "",
   };

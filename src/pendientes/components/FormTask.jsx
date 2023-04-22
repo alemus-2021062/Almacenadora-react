@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { formOptions, sendData } from "../helpers/FormTareaHelper";
 import { useForm } from "react-hook-form";
 
-export const FormTask = ({tareaProp, titleButton, option}) => {
+export const FormTask = ({tareaProp, titleButton, option, id}) => {
     const [tarea, setTarea] = useState(tareaProp)
     const {
         register,
-        handleSubmit,
+        handleSubmit
       } = useForm(formOptions);
 
     useEffect(() => {
@@ -16,6 +16,12 @@ export const FormTask = ({tareaProp, titleButton, option}) => {
     const crud = async () => {
         await sendData(tarea, option)
     };
+/*
+    const handleSubmit = (event) =>{
+        sendData(tarea,2, id);
+    }
+*/
+
 
     return (
         <>

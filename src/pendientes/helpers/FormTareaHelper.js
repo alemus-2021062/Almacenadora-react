@@ -39,25 +39,32 @@ export const sendData = async (tarea, option) => {
       }
       break;
     case 2:
-      console.log(tarea._id);
-      resultado = await UpdateTask(
-        tarea._id,
-        tarea.nombre,
-        tarea.descripcion,
-        tarea.fecha_inicio,
-        tarea.fecha_cierre,
-        tarea.creador
-      );
+      console.log(tarea?._id);
+      resultado =  UpdateTask(
+        tarea?._id,
+         tarea?.nombre,
+         tarea?.descripcion,
+         tarea?.fecha_inicio,
+        tarea?.fecha_cierre,
+         tarea?.creador
+        );
       if (resultado) {
         Swal.fire({
           icon: "success",
           title: "Genial!",
-          text: `usuario actualizado correctamente!`,
+          text: `tarea actualizada correctamente!`,
           confirmButtonText: true,
           confirmButtonText: "Ok",
         }).then((result) => {
           if (result.isConfirmed) {
           } else {
+            Swal.fire({
+              icon: "error",
+              title: "NOoooooooo!",
+              text: `no salio la actualizacion!`,
+              confirmButtonText: true,
+              confirmButtonText: "Ok",
+            })
           }
         });
       }

@@ -52,19 +52,24 @@ export const UpdateTarea = async (id, nombre, descripcion, fecha_inicio, fecha_c
       const { data } = await axios.put(
         `${URL}editar/${id}`,
         {
-          nombre,
-          descripcion,
-          fecha_inicio,
-          fecha_cierre,
-          creador
+          nombre: nombre,
+          descripcion: descripcion,
+          fecha_inicio: fecha_inicio,
+          fecha_cierre: fecha_cierre,
+          creador: creador
         },
       );
       return true;
-    } catch ({
-      response: {
-        data: { message },
-      },
-    }) {
+    } catch(err) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No se pudo editar la tarea!",
+      });
+      // response: {
+      //   data: { message },
+      // },
+    } {
       console.log(message.password.msg);
     }
   };

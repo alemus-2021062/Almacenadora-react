@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { DeleteTarea, apiTarea } from "../api/apiTarea";
-import { Tarea } from "../models/ModelTarea";
+import { tareaModal } from "../models/ModelTarea";
 import Swal from "sweetalert2";
 import { UpdateTask } from "./UpdateTask";
 
@@ -8,7 +8,7 @@ export const ListaTareas = () => {
 
   const [tarea, setTarea] = useState([])
   const [showModal, setShowModal] = useState(false)
-  const [tareas, setTareas] = useState(Tarea)
+  const [tareas, setTareas] = useState(tareaModal)
 
   const reload = async () => {
     const result = await apiTarea()
