@@ -1,4 +1,4 @@
-import { CreateTarea} from "../api/apiTarea";
+import { CreateTarea, UpdateTarea} from "../api/apiTarea";
 import Swal from "sweetalert2";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -39,14 +39,16 @@ export const sendData = async (tarea, option) => {
       }
       break;
     case 2:
-      console.log(tarea?._id);
-      resultado =  UpdateTask(
-        tarea?._id,
-         tarea?.nombre,
-         tarea?.descripcion,
-         tarea?.fecha_inicio,
-        tarea?.fecha_cierre,
-         tarea?.creador
+      console.log(tarea._id);
+      console.log(tarea.nombre)
+      console.log(tarea);
+      resultado =  UpdateTarea(
+        tarea._id,
+         tarea.nombre,
+         tarea.descripcion,
+         tarea.fecha_inicio,
+        tarea.fecha_cierre,
+         tarea.creador
         );
       if (resultado) {
         Swal.fire({
@@ -57,6 +59,7 @@ export const sendData = async (tarea, option) => {
           confirmButtonText: "Ok",
         }).then((result) => {
           if (result.isConfirmed) {
+            window.location.href = "/";
           } else {
             Swal.fire({
               icon: "error",

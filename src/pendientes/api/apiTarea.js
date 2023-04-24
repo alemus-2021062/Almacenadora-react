@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const URL = 'http://localhost:8000/api/'
 
@@ -49,6 +50,7 @@ export const CreateTarea = async (nombre, descripcion, fecha_inicio, fecha_cierr
 
 export const UpdateTarea = async (id, nombre, descripcion, fecha_inicio, fecha_cierre, creador) => {
     try {
+      console.log("Entre al menos al UpdateTarea del api")
       const { data } = await axios.put(
         `${URL}editar/${id}`,
         {
@@ -59,6 +61,7 @@ export const UpdateTarea = async (id, nombre, descripcion, fecha_inicio, fecha_c
           creador: creador
         },
       );
+      console.log(data);
       return true;
     } catch(err) {
       Swal.fire({
@@ -66,9 +69,9 @@ export const UpdateTarea = async (id, nombre, descripcion, fecha_inicio, fecha_c
         title: "Oops...",
         text: "No se pudo editar la tarea!",
       });
-      // response: {
-      //   data: { message },
-      // },
+      response: {
+        data: { message }
+      }
     } {
       console.log(message.password.msg);
     }

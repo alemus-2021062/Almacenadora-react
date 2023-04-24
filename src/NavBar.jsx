@@ -6,7 +6,7 @@ export const NavBar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-secondary text-light">
+            <nav className="navbar navbar-expand-lg bg-dark text-light">
                 <div className="container-fluid text-light">
                     <Link className="navbar-brand fs-1 text-light" to="/">Menu Inicial</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

@@ -75,7 +75,7 @@ export const ListaTareas = () => {
             </tr>
           </thead>
           <tbody>
-            {tarea?.map((t) => {
+            {tarea.map((t) => {
               return (
                 <tr key={t._id}>
                   <th scope="row">{t.nombre}</th>
@@ -105,9 +105,9 @@ export const ListaTareas = () => {
           </tbody>
         </table>
         <UpdateTask
-          tareaEdit={tareas}
           isOpen={showModal}
-          onClose={() => handleCloseModal()}>
+          onClose={() => handleCloseModal()}
+          tareaEdit={tareas}>
         </UpdateTask>
       </div>
         </div>
